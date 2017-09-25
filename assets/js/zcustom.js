@@ -50,3 +50,10 @@ $('form.form-email.custom-script').submit(function(e){
 	else e.preventDefault(); mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500);
 
 })
+
+$(document).on('mouseover','.dropdown',function(){
+	$(this).find('.dropdown-menu').stop().fadeIn('fast')
+})
+$(document).on('mouseleave','.dropdown',function(){
+	$(this).find('.dropdown-menu').stop().fadeOut('fast')
+})

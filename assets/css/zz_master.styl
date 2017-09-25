@@ -4,9 +4,14 @@ normalize-css()
 base()
 
 
-// --- --- --- HEADER
-#menu2
-	position absolute
+
+
+// --- --- --- COLORS
+.bg--gray
+	background $gray
+
+
+
 
 
 // --- --- --- MISC CLASSES
@@ -23,3 +28,96 @@ canvas
 		position relative
 		//top -30vh
 		opacity .5
+[data-overlay]:before
+	background $gray
+
+#menu-overlay
+	position fixed
+	top 0
+	bottom 0
+	left 0
+	right 0
+	z-index 2
+
+// --- --- --- HEADER
+header
+	position absolute
+	z-index 3
+	top 0
+	right 0
+	left 0
+	margin auto
+	max-height 200px
+	img
+		max-height 100%
+	#menu1
+		padding 10px 100px 10px 25px
+		background $gray
+		position absolute
+		top 2vh
+		right 0vw
+
+		.dropdown-menu
+			position absolute
+			left -59px
+			right -59px
+			text-align center
+			margin auto
+			display none
+			width auto
+			background $gray
+			padding 10px 10px
+		@media (max-width: 768px)
+			top auto
+			.menu-horizontal
+				text-align left
+			.dropdown-menu
+				opacity 1 !important
+				position relative
+				display block !important
+				left 0
+				right 0
+				border-left 3px $green solid
+				padding 0 0 0 10px
+			.dropdown__trigger
+				&:after
+					display none
+	a
+		font-family $quicksand
+		font-size 13px
+		color $white
+
+
+
+
+// --- --- --- HOME PAGE
+#intro-logo
+	position absolute
+	top 0
+	bottom 0
+	left 0
+	right 0
+	margin auto
+	height 20%
+	max-height 300px
+	z-index 1
+
+
+// --- --- --- footer
+#footer
+	#footer-social
+		ul
+			li
+				display inline-block
+				margin 10px
+				a
+					color $white
+					font-size 30px
+					transition 0.2s
+					&:hover
+						color $green
+						transition 0.2s
+
+	p
+		color $white
+		font-size 14px

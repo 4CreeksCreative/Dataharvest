@@ -75,7 +75,7 @@ object.add(new THREE.Mesh(
     color: 0xffffff,
     emissive: 0x1aa829,
     wireframe: true,
-    wireframeLinewidth: 5,
+    wireframeLinewidth: 1,
     fog: 5
   })
 
