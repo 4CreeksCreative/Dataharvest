@@ -26,22 +26,28 @@ THREE.IcosahedronGeometry.prototype.constructor = THREE.IcosahedronGeometry;
 // Scene
 var h
 var scene = new THREE.Scene();
+var scene2 = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
-camera.position.z = 200
-
+var camera2 = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
 var renderer = new THREE.WebGLRenderer({
+  antialias: 1,
+  alpha: true
+});
+var renderer2 = new THREE.WebGLRenderer({
   antialias: 1,
   alpha: true
 });
 var sprite = new THREE.TextureLoader().load("/img/disk.png")
 
 renderer.setClearColor(0x000000, 0);
+renderer2.setClearColor(0x000000, 0);
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer2.setSize(window.innerWidth, window.innerHeight);
 //document.body.appendChild(renderer.domElement);
 $('.orb-container').append(renderer.domElement)
-
+$('.orb-container').append(renderer2.domElement)
 scene.fog = new THREE.Fog(0xd1e028, 8, 20);
-
+scene2.fog = new THREE.Fog(0xd1e028, 8, 20);
 // Create vertex points
 var mesh = new THREE.IcosahedronGeometry(10, 1); // radius, detail
 var vertices = mesh.vertices;
@@ -62,11 +68,11 @@ var material = new THREE.PointsMaterial({
 });
 //material.color.setHSL( 1.0, 0.3, 0.7 );
 var points = new THREE.Points(geometry, material);
-
+var points2 = new THREE.Points(geometry, material);
 var object = new THREE.Object3D();
-
+var object2 = new THREE.Object3D();
 object.add(points);
-
+object2.add(points2);
 
 
 object.add(new THREE.Mesh(
@@ -80,13 +86,24 @@ object.add(new THREE.Mesh(
   })
 
 ));
+object2.add(new THREE.Mesh(
+  mesh,
+  new THREE.MeshPhongMaterial({
+    color: 0xffffff,
+    emissive: 0x1aa829,
+    wireframe: true,
+    wireframeLinewidth: 1,
+    fog: 5
+  })
+
+));
 
 scene.add(object);
-
+scene2.add(object2);
 camera.position.z = 20;
-
+camera2.position.z = 10;
 var render = function() {
-    var time = Date.now() * 0.00005;
+    //var time = Date.now() * 0.00005;
   requestAnimationFrame(render);
   // h = ( 360 * ( 1.0 + time ) % 360 ) / 360;
   // material.color.setHSL( h, 0.5, 0.5 );
@@ -94,6 +111,16 @@ var render = function() {
   object.rotation.y += 0.0005;
 
   renderer.render(scene, camera);
+};
+var render2 = function() {
+    //var time = Date.now() * 0.00005;
+  requestAnimationFrame(render2);
+  // h = ( 360 * ( 1.0 + time ) % 360 ) / 360;
+  // material.color.setHSL( h, 0.5, 0.5 );
+  object2.rotation.x += 0.000075;
+  object2.rotation.y += 0.000075;
+
+  renderer2.render(scene2, camera2);
 };
 
 function onWindowResize() {
@@ -104,9 +131,10 @@ function onWindowResize() {
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
         renderer.setSize( width, height );
-        postprocessing.composer.setSize( width, height );
+        //postprocessing.composer.setSize( width, height );
     }
 
 window.addEventListener( 'resize', onWindowResize, false );
 
 render();
+render2();
