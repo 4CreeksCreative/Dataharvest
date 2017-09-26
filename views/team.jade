@@ -1,0 +1,57 @@
+extends layout
+
+block content
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+	script(src='https://ajax.googleapis.com/ajax/libs/threejs/r76/three.min.js')
+	section#hero.pos-relative.height-30.unpad.parallax(data-overlay="9")
+		.orb-container.no-max-height
+			script(src="/js-extra/orbZilla.js")
+		.background-image-holder
+			//-.slider(data-arrows='false', data-paging='false')
+				ul.slides
+					for image in contentful.Home[0].headerBackgrounds
+						li.unpad.imagebg.parallax
+			img(src="/img/test.jpg")
+
+		.container.pos-vertical-center
+			.row.text-center
+				.col-sm-12
+					h1.color--white Team
+	
+	
+	section.bg--lightgray
+		.container
+			.row.text-center
+				.col-sm-8.col-sm-offset-2
+					p.
+						Our technology team stands ready to handle the pipeline of information that will flood our modern day farmers with data. Designing and supporting some of the world’s largest data sets, we are ready to build the architecture for the data flow that enables the farms to harvest their second most valuable commodity; their data.
+	section
+		.container
+			.row
+				.col-sm-6
+					img(src="/img/test.jpg")
+					h5.unmarg Mark Buhl
+					p.
+						Co-founder / Director of International Business Development and Export Sales
+				.col-sm-6
+					img(src="/img/test.jpg")
+					h5.unmarg Ryan Clark
+					p.
+						Co-founder / Director Agriculture Data Security and Automation
+			.row.mt--2.mb--2
+				col-sm-12
+					hr
+			.row.text-center
+				.col-sm-12
+					h3 Advisors
+					h5 
+						a(href="#") Eric Richardson
+					h5 
+						a(href="#") Ryan Larken
+					h5 
+						a(href="#") Garen Fang
+					h5 
+						a(href="#") Dennis O'Connell
+					h5 
+						a(href="#") Felipe Illanes
+				
