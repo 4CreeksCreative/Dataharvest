@@ -9,7 +9,7 @@ module.exports =
 
 	extensions: [
 		js_pipeline(files: ['assets/js/*.coffee','assets/js/*.js']),
-		css_pipeline(files: ['assets/css/*.styl','assets/css/*.css'])
+		css_pipeline(files: ['assets/css/*.css','assets/css/*.styl'])
 	# contentful
 	# 		access_token: 'e75ea3d56e9c47e422e060239a57fa84d6e0dea64478f3edae4e674f65308a60'
 	# 		space_id: 'kzkzhu5buy40'
