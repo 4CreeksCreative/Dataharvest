@@ -1,0 +1,38 @@
+extends /layout
+
+block content
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+	script(src='https://ajax.googleapis.com/ajax/libs/threejs/r76/three.min.js')
+	section#hero.pos-relative.height-30.unpad.parallax(data-overlay="9")
+		.orb-container.no-max-height
+			script(src="/js-extra/orbZilla.js")
+		.background-image-holder
+			//-.slider(data-arrows='false', data-paging='false')
+				ul.slides
+					for image in contentful.Home[0].headerBackgrounds
+						li.unpad.imagebg.parallax
+			img(src="/img/test.jpg")
+
+		.container.pos-vertical-center
+			.row.text-center
+				.col-sm-12
+					h1.color--white Technology
+	
+	
+	section.text-blocks
+		if entry.textBlocks.length > 0
+			for item in entry.textBlocks
+				if item.fields.imagePosition === 'center'
+					.row.text-center
+						.col-sm-8.col-sm-offset-2
+							h3= item.fields.sectionTitle
+							img(src="#{asset(item.fields.image)}")
+							p= item.fields.sectionBody
+				else
+					.row
+						.col-sm-6(class="float-#{item.fields.imagePosition}")
+							img(src="#{asset(item.fields.image)}")
+						.col-sm-6.text-area(class="text-#{item.fields.imagePosition}")
+							h3= item.fields.sectionTitle
+							p= item.fields.sectionBody
+			
