@@ -3,6 +3,7 @@ rupture      = require 'rupture'
 autoprefixer = require 'autoprefixer-stylus'
 js_pipeline  = require 'js-pipeline'
 css_pipeline = require 'css-pipeline'
+contentful   = require 'roots-contentful'
 
 module.exports =
 	ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
@@ -27,6 +28,15 @@ module.exports =
 	# 			Home:
 	# 				id: 'homePage'
 	# 				##template: 'views/partial/_cf_post.jade'
+		contentful
+			access_token:'3edc60740190cee0efc026e74e6d9b30aec916c017195c73cec7e8625f7b7fff'
+			space_id: 'tltr1w0m8ryi'
+			content_types:
+				tech:
+					id:'techPosts'
+					template:'views/partials/_tech_template.jade'
+					path: (e) -> 'tech/'+e.url
+
 	]
 
 	stylus:
@@ -38,4 +48,8 @@ module.exports =
 
 	jade:
 		pretty: true
+		basedir: 'views'
+	server:
+		clean_urls: true
+	locals:
 		basedir: 'views'
