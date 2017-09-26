@@ -91,7 +91,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: 'uni_neue', 'Helvetica', 'Arial', sans-serif;
+    /*font-family: 'uni_neue', 'Helvetica', 'Arial', sans-serif;*/
     color: #252525;
     font-weight: 300;
     font-variant-ligatures: common-ligatures;
@@ -993,19 +993,19 @@ div[data-overlay] ul {
 }
 /**! 06. Buttons **/
 .btn {
-    font-family: 'uni_neue', 'Helvetica', 'Arial', sans-serif;
-    transition: 0.1s linear;
+    /*font-family: 'uni_neue', 'Helvetica', 'Arial', sans-serif;*/
+    /*transition: 0.1s linear;
     -webkit-transition: 0.1s linear;
-    -moz-transition: 0.1s linear;
-    border-radius: 6px;
-    padding-top: 0.46428571em;
+    -moz-transition: 0.1s linear;*/
+    /*border-radius: 6px;*/
+    /*padding-top: 0.46428571em;
     padding-bottom: 0.46428571em;
     padding-right: 2.78571429em;
-    padding-left: 2.78571429em;
-    border: 1px solid #252525;
-    border-width: 1px;
-    font-size: inherit;
-    line-height: 1.85714286em;
+    padding-left: 2.78571429em;*/
+    /*border: 1px solid #252525;*/
+    /*border-width: 1px;*/
+    /*font-size: inherit;*/
+    /*line-height: 1.85714286em;*/
 }
 
     .btn .btn__text,
@@ -4750,11 +4750,11 @@ body.boxed-layout .modal-container section:not([class*='bg-']) {
 }
 /*! -- Stack Sections -- */
 section:not(.unpad):not(.imagebg):not([class*='bg--']):not(.imageblock):not(.unpad--bottom):not(.border--bottom):not(.space--xxs) + section:not(.unpad):not(.imagebg):not([class*='bg--']):not(.imageblock):not(.border--bottom):not(.space--xxs) {
-    padding-top: 0;
+    /*padding-top: 0;*/
 }
 
 section:not(.unpad):not(.imagebg):not([class*='bg--']):not(.imageblock):not(.unpad--bottom):not(.border--bottom) + footer:not(.unpad):not(.imagebg):not([class*='bg--']):not(.imageblock):not(.unpad--bottom):not(.border--bottom) {
-    padding-top: 0;
+    /*padding-top: 0;*/
 }
 
 section:not(.imagebg):not([class*='bg-']) + section.bg--secondary {
