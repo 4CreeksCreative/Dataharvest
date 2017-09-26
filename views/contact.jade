@@ -1,0 +1,61 @@
+extends layout
+
+block content
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+	script(src='https://ajax.googleapis.com/ajax/libs/threejs/r76/three.min.js')
+	section#hero.pos-relative.height-30.unpad.parallax(data-overlay="9")
+		.orb-container.no-max-height
+			script(src="/js-extra/orbZilla.js")
+		.background-image-holder
+			//-.slider(data-arrows='false', data-paging='false')
+				ul.slides
+					for image in contentful.Home[0].headerBackgrounds
+						li.unpad.imagebg.parallax
+			img(src="/img/test.jpg")
+
+		.container.pos-vertical-center
+			.row.text-center
+				.col-sm-12
+					h1.color--white Contact
+	
+	
+	section.bg--lightgray
+		.container
+			.row.text-center
+				.col-sm-8.col-sm-offset-2
+					h3.
+						Get In Touch
+			
+			.row
+				.col-sm-12
+					span.contact-icon
+						i.fa.fa-map-pin
+						|San Joaquin Valley of California, California
+				.col-sm-12
+					span.contact-icon
+						i.fa.fa-phone
+						|(916) 741-2687
+				.col-sm-12
+					span.contact-icon
+						i.fa.fa-envelope
+						|#[a(href="mailto:info@dataharvest.co") info@dataharvest.co]
+	section
+		.container
+			.row
+				.col-sm-8.col-sm-offset-2
+					form#contact-form.form-email.custom-script(data-error="Please fill out all fields correctly", name='contact', netlify-honeypot="bot-field", action='/thankyou', netlify)
+						.col-sm-12.hidden
+							label don't fill this out:
+							input(type='text', name='bot-field')
+						.col-sm-6
+							label Name
+							input.validate-required(type='text', name='name')
+						.col-sm-6
+							label Email
+							input.validate-required.validate-email(type='text', name='email')
+						.col-sm-12
+							label Message
+							textarea.validate-required(type='text', name='message')
+						.float-right(style="padding-right:15px;")
+							button.btn(type='submit' style="position:relative;z-index:9;")
+								span Send
