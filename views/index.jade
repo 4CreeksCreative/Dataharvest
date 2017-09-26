@@ -18,7 +18,115 @@ block content
 			img#intro-logo(src="/img/logo/logo-white.png")
 
 
+		section.bg--lightgray
+			.container
+				.row.text-center
+					.col-sm-12
+						h1.
+							Helping growers make the most of their data
+						p.
+							DataHarvest integrates technology and big data into modern large scale agricultural operations. We solve problems for the farm at a fundamental level; finding efficiencies, savings, developing transparencies, and opportunities to lead the market in global supply through blockchain technology.
+					.col-sm-12
+						a.btn(href="/technology") 
+							span Our Tech
+							
 		section
 			.container
-				.row
+				.row.text-center
+					.col-sm-4
+						.radial(data-value='100', data-timing='1000', data-color='#9fbaa7', data-size='200', data-bar-width='10')
+							span.h3.radial__label
+								i.fa.fa-comments-o
+						h4.
+							ADVISORY
+						p.
+							DataHarvest is built as a neutral partner. We have decades of experience with data services. We advocate for the farmer to retain control of their data and only pay for services that return measurable improvements to the bottom line…not just pretty pictures.
+						
+					.col-sm-4
+						.radial(data-value='100', data-timing='1000', data-color='#9fbaa7', data-size='200', data-bar-width='10')
+							span.h3.radial__label
+								i.fa.fa-search
+						h4.
+							DISCOVERY
+						p.
+							The DataHarvest team has audited and documented processes from field to the retail shelf. We know what data is useful today and how to make sure that data bubbles to the top. In addition, we are actively testing new approaches with our partners to make sure we can find the data you will need tomorrow.
+							
+					.col-sm-4
+						.radial(data-value='100', data-timing='1000', data-color='#9fbaa7', data-size='200', data-bar-width='10')
+							span.h3.radial__label
+								i.fa.fa-bolt
+						h4.
+							DEVELOPMENT
+						p.
+							Our team of project manager are PMP certified and will drive the project until it is successfully completed. Communicating every step of the way so all involved know about the progress and can quickly jump in when hurdles arise.
+		section.bg--green
+			.container
+				.row.text-center
+					.col-sm-8.col-sm-offset-2
+						h3.color--white Project Spotlight
+						p.color--white.
+							We are teaming with UC Riverside to develop a novel agricultural blockchain platform, to integrate and pilot blockchain technology into the Avocado Variety Improvement Program for management and deployment of newly developed varieties.
+						a.btn.btn--lightgray(href="#")
+							span Read the story
+		section
+			.container
+				.row.text-center
 					.col-sm-12
+						h4.
+							BLOCKCHAIN NEWS
+				.row
+					.col-sm-4.col-xs-6
+						a(href="")
+							img(src="/img/test.jpg")
+							h5.unmarg.
+								JD vs Alibaba: The war for China’s fresh food
+							hr
+							p.
+								Chinese online retailers have long wanted to figure out the online groceries game—tantalizing and still largely untapped.
+							a.btn(href="#")
+								span Read More
+					.col-sm-4.col-xs-6
+						a(href="")
+							img(src="/img/test.jpg")
+							h5.unmarg.
+								Blockchain: GS1, IBM and Microsoft collaborate to leverage standards
+							hr
+							p.
+								GS1®, announces a collaboration with IBM and Microsoft to leverage GS1 Standards in their enterprise blockchain applications for supply chain clients.
+							a.btn(href="#")
+								span Read More
+					.col-sm-4.col-xs-6
+						a(href="")
+							img(src="/img/test.jpg")
+							h5.unmarg.
+								Belgian strawberry harvesting robot to enter green houses next year
+							hr
+							p.
+								The machine was demonstrated at the International Mechanisation and Demonstration Day at Research Centre, Hoogstraten.
+							a.btn(href="#")
+								span Read More
+		
+		section.bg--gray
+			.container
+				.row.text-center
+					.col-sm-12
+						h2.color--white.
+							We'd love to hear from you
+				.row
+					.col-sm-8.col-sm-offset-2
+						form#contact-form.form-email.custom-script(data-error="Please fill out all fields correctly", name='contact', netlify-honeypot="bot-field", action='/thankyou', netlify)
+							.col-sm-12.hidden
+								label.color--white don't fill this out:
+								input(type='text', name='bot-field')
+							.col-sm-6
+								label.color--white Name
+								input.validate-required(type='text', name='name')
+							.col-sm-6
+								label.color--white Email
+								input.validate-required.validate-email(type='text', name='email')
+							.col-sm-12
+								label.color--white Message
+								textarea.validate-required(type='text', name='message')
+							.float-right(style="padding-right:15px;")
+								button.btn.btn--green-lightgray(type='submit' style="position:relative;z-index:9;")
+									span Send
