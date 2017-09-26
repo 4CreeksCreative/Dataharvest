@@ -1,0 +1,69 @@
+extends layout
+
+block content
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+	script(src='https://ajax.googleapis.com/ajax/libs/threejs/r76/three.min.js')
+	section#hero.pos-relative.height-30.unpad.parallax(data-overlay="9")
+		.orb-container.no-max-height
+			script(src="/js-extra/orbZilla.js")
+		.background-image-holder
+			//-.slider(data-arrows='false', data-paging='false')
+				ul.slides
+					for image in contentful.Home[0].headerBackgrounds
+						li.unpad.imagebg.parallax
+			img(src="/img/test.jpg")
+
+		.container.pos-vertical-center
+			.row.text-center
+				.col-sm-12
+					h1.color--white Technology
+	
+	
+	section
+		.container
+			.row
+				.col-sm-6.float-right
+					img(src="/img/test.jpg")
+				.col-sm-6.float-left
+					h3.
+						Commodities turned into digital assets
+					p.
+						DataHarvest strives to deploy technologies and processes that capture every physical asset and assign it a digital identity. Allowing each asset to be traced and validated. Providing transparency on the origins, transit conditions, attributes and ownership. We work with our clients current systems as well as develop new tools and processes to achieve this goal.
+			.row.mt--1
+				.col-sm-6.float-left
+					img(src="/img/test.jpg")
+				.col-sm-6.float-right
+					h3.
+						Insightful solutions from the minds of growers
+					p.
+						DataHarvest and our partners represent decades of practical, hands on experience from growers to Global scale retailer and marketers. We combine state of the art technology platforms to make immediate tangible solutions for existing agricultural problems
+				
+	section.pos-relative.parallax.height-30
+		.background-image-holder
+			img(src="/img/test.jpg")
+		.container.pos-vertical-center
+			.row.text-center
+				.col-sm-8.col-sm-offset-2
+					h3.color--white The implications of  Block Chain
+					p.color--white.
+						Data Harvest’s First Block Ledger provides a digital record, like asset ownership, that is maintained without a central authority or implementation. This provides unparalleled transparency that provides value to all parties.
+					a.btn(href="#")
+						span More on Block Chain
+	section
+		.container
+			.row.text-center
+				.col-sm-12
+					h3 Technology partners
+			ul.row.text-center
+				li.col-sm-3.col-xs-6
+					a(href="#")
+						img(src="/img/test.jpg")
+				li.col-sm-3.col-xs-6
+					a(href="#")
+						img(src="/img/test.jpg")
+				li.col-sm-3.col-xs-6
+					a(href="#")
+						img(src="/img/test.jpg")
+				li.col-sm-3.col-xs-6
+					a(href="#")
+						img(src="/img/test.jpg")
