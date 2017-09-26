@@ -66,9 +66,17 @@ var material = new THREE.PointsMaterial({
   //vertexColors: THREE.VertexColors,
   color: 0x1aa829
 });
+var material2 = new THREE.PointsMaterial({
+  size: 0.25,
+  map: sprite,
+  transparent: true,
+  //vertexColors: THREE.VertexColors,
+  color: 0xffffff
+});
 //material.color.setHSL( 1.0, 0.3, 0.7 );
 var points = new THREE.Points(geometry, material);
-var points2 = new THREE.Points(geometry, material);
+var points2 = new THREE.Points(geometry, material2);
+
 var object = new THREE.Object3D();
 var object2 = new THREE.Object3D();
 object.add(points);
@@ -90,7 +98,7 @@ object2.add(new THREE.Mesh(
   mesh,
   new THREE.MeshPhongMaterial({
     color: 0xffffff,
-    emissive: 0x1aa829,
+    emissive: 0xffffff,
     wireframe: true,
     wireframeLinewidth: 1,
     fog: 5
@@ -117,8 +125,8 @@ var render2 = function() {
   requestAnimationFrame(render2);
   // h = ( 360 * ( 1.0 + time ) % 360 ) / 360;
   // material.color.setHSL( h, 0.5, 0.5 );
-  object2.rotation.x += 0.000075;
-  object2.rotation.y += 0.000075;
+  object2.rotation.x += 0.0005;
+  object2.rotation.y -= 0.0005;
 
   renderer2.render(scene2, camera2);
 };
