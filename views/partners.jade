@@ -1,0 +1,37 @@
+extends layout
+
+block content
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+	script(src='https://ajax.googleapis.com/ajax/libs/threejs/r76/three.min.js')
+	section#hero.pos-relative.height-30.unpad.parallax(data-overlay="9")
+		.orb-container.no-max-height
+			script(src="/js-extra/orbZilla.js")
+		.background-image-holder
+			//-.slider(data-arrows='false', data-paging='false')
+				ul.slides
+					for image in contentful.Home[0].headerBackgrounds
+						li.unpad.imagebg.parallax
+			img(src="/img/test.jpg")
+
+		.container.pos-vertical-center
+			.row.text-center
+				.col-sm-12
+					h1.color--white Partners
+	
+	
+	section.bg--lightgray
+		.container
+			.row.text-center
+				.col-sm-12
+					h3 One-of-a-kind collaborators
+				.col-sm-8.col-sm-offset-2
+					p.
+						DataHarvest has grown over the last couple of years and has been working with great partners on various projects. Joining with public companies, large and small, while developing exclusive agreements with academic and research organizations  we have a one of a kind portfolio of products and projects. Below you’ll find some of our public projects. If you have a project feel free to contact us here
+	section
+		.container
+			.row
+				.col-sm-4
+					img(src="/img/test.jpg")
+				.col-sm-8
+					p.
+						Research program to test the viability of agricultural UAV products. Our background in high value crops and remote data sensing helped the client find ideal conditions for product development. Introducing large scale growing operations and developing the overall scope of the project. Coordinating and educating growers with capabilities of UAVs and channeling feedback and concerns into a successful proof of concept.
