@@ -52,11 +52,11 @@ a
 		font-weight 400
 	&:hover
 		text-decoration none !important
-p
+p,h1,h2,h3,h4,h5,h6,span
 	a
 		color $green
 		&:hover
-			color $lightgray
+			color $green2
 i
 	color $gray
 textarea
@@ -122,9 +122,9 @@ textarea
 
 
 // --- --- --- MISC CLASSES
-canvas
-	max-width 100%
-	max-height 100%
+#hero
+	.container
+		z-index 3
 .orb-container
 	z-index 1
 	position absolute
@@ -133,7 +133,10 @@ canvas
 	right 0
 	height 100%
 	width 100%
+
 	canvas
+		max-width 100%
+		max-height 100%
 		position absolute
 		//top -30vh
 		opacity .5
@@ -143,6 +146,11 @@ canvas
 		width 100%
 		&:nth-child(3)
 			opacity .1
+	&.no-max-height
+		canvas
+			top -30vh
+			max-width none
+			max-height none
 [data-overlay]:before
 	background $gray
 
@@ -263,3 +271,61 @@ header
 	p
 		color $white
 		font-size 14px
+
+
+
+
+
+
+
+// --- --- --- CONTACT PAGE
+.contact-icon
+	i
+		font-size 30px
+		margin-right 10px
+
+
+// --- --- --- BLOG POSTS
+.text-blocks
+	padding-bottom 0
+ 	.row
+		position relative
+		&:not(:first-child)
+			@media(min-width:768px)
+				margin-top 100px
+
+		[class*="col-"]
+			@media(max-width:768px)
+				padding 25px 50px
+				float none
+		.text-area
+			@media(min-width:1920px)
+				padding 100px
+			@media(max-width:1920px)
+				padding 50px
+			@media(min-width:1200px)
+				position absolute
+				top 50%
+				transform translateY(-50%)
+				-webkit-transform translateY(-50%)
+			@media(max-width:1200px)
+				padding 0px 50px 50px 50px
+			@media(max-width:768px)
+				text-align center
+				padding 25px 50px
+			&.text-left
+				@media(min-width:1200px)
+					margin-left 50%
+
+		.col-sm-6
+			img
+				display block
+
+
+
+// --- --- --- Media Queries
+@media(max-width:1400px)
+	h3
+		line-height 40px
+	p
+		line-height 30px
