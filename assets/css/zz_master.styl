@@ -9,6 +9,113 @@ base()
 // --- --- --- COLORS
 .bg--gray
 	background $gray
+.bg--lightgray
+	background $lightgray
+.bg--green
+	background $green
+.color--green
+	color $green
+.color--gray
+	color $gray
+.color--lightgray
+	color $lightgray
+.color--white
+	color $white
+
+
+
+// --- --- --- FONTS
+*
+	font-family $quicksand
+
+h1,h2,h3,h4,h5,h6
+	font-weight 300
+h1
+	font-size 60px
+h2
+	font-size 50px
+h3
+	font-size 40px
+h4
+	font-size 30px
+h5
+	font-size 20px
+h6
+	font-size 16px
+p,input,span,textarea
+	font-size 16px
+	color $gray
+input, textarea
+	border-radius 0px !important
+a
+	p
+		font-weight 400
+	&:hover
+		text-decoration none !important
+p
+	a
+		color $green
+		&:hover
+			color $lightgray
+i
+	color $gray
+textarea
+	min-height 300px
+
+
+
+
+
+
+// --- --- --- BUTTONS
+.btn
+	border none
+	color $white
+	background $green
+	border-radius 0px
+	padding 10px 20px
+	transition 0.2s
+	span
+		color $white
+	&:hover
+		transition 0.2s
+		background $gray
+		span
+			color $white
+.btn--gray
+	background $gray
+	span
+		color $white
+	&:hover
+		background $lightgray
+		span
+			color $gray
+.btn--lightgray
+	background $lightgray
+	span
+		color $gray
+	&:hover
+		background $gray
+		span
+			color $lightgray
+.btn--lightgray-green
+	background $lightgray
+	span
+		color $gray
+	&:hover
+		background $green
+		span
+			color $lightgray
+.btn--green-lightgray
+	background $green
+	span
+		color $white
+	&:hover
+		background $lightgray
+		span
+			color $gray
+
+
 
 
 
@@ -46,6 +153,14 @@ canvas
 	left 0
 	right 0
 	z-index 2
+section
+	padding 100px 0
+img
+	margin-bottom 20px
+hr
+	border-color $green
+	margin 10px 0
+
 
 // --- --- --- HEADER
 header
@@ -64,7 +179,9 @@ header
 		position absolute
 		top 2vh
 		right 0vw
-
+		.dropdown__trigger
+			&:after
+				display none
 		.dropdown-menu
 			position absolute
 			left -59px
@@ -92,8 +209,13 @@ header
 					display none
 	a
 		font-family $quicksand
-		font-size 13px
+		font-size 16px
+		font-weight 400
 		color $white
+		transition 0.2s
+		&:hover
+			color $green
+			transition 0.2s
 
 
 
@@ -109,8 +231,18 @@ header
 	height 20%
 	max-height 300px
 	z-index 1
-
-
+	@media(max-width:768px)
+		height auto
+		max-width 90%
+.radial
+	i
+		transition 0.2s
+		color $gray
+		font-size 70px
+	&:hover
+		i
+			color $green
+			transition 0.2s
 // --- --- --- footer
 #footer
 	#footer-social
@@ -119,12 +251,14 @@ header
 				display inline-block
 				margin 10px
 				a
-					color $white
-					font-size 30px
-					transition 0.2s
-					&:hover
-						color $green
+					i
+						color $white
+						font-size 30px
 						transition 0.2s
+					&:hover
+						i
+							color $green
+							transition 0.2s
 
 	p
 		color $white
