@@ -22,7 +22,7 @@ block content
 	section.text-blocks
 		if entry.textBlocks.length > 0
 			for item in entry.textBlocks
-				if item.fields.imagePosition === 'center'
+				if item.fields.imagePosition === 'center' || item.fields.imagePosition === undefined
 					.row.text-center
 						.col-sm-8.col-sm-offset-2
 							h3= item.fields.sectionTitle
