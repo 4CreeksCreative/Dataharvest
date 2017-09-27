@@ -25,33 +25,33 @@ block content
 				.col-sm-8.col-sm-offset-2
 					p.
 						Our technology team stands ready to handle the pipeline of information that will flood our modern day farmers with data. Designing and supporting some of the world’s largest data sets, we are ready to build the architecture for the data flow that enables the farms to harvest their second most valuable commodity; their data.
+	
 	section
 		.container
-			.row
-				.col-sm-6
-					img(src="/img/test.jpg")
-					h5.unmarg Mark Buhl
-					p.
-						Co-founder / Director of International Business Development and Export Sales
-				.col-sm-6
-					img(src="/img/test.jpg")
-					h5.unmarg Ryan Clark
-					p.
-						Co-founder / Director Agriculture Data Security and Automation
-			.row.mt--2.mb--2
-				col-sm-12
-					hr
-			.row.text-center
-				.col-sm-12
-					h3 Advisors
-					h5 
-						a(href="#") Eric Richardson
-					h5 
-						a(href="#") Ryan Larken
-					h5 
-						a(href="#") Garen Fang
-					h5 
-						a(href="#") Dennis O'Connell
-					h5 
-						a(href="#") Felipe Illanes
-				
+			if contentful.team.length > 0
+				.row
+					for item in contentful.team
+						.col-sm-6.text-center
+							if item.image != undefined
+								img(src="#{asset(item.image)}" style="margin: 0 auto 20px auto;")
+							if item.name != undefined
+								h5.unmarg= item.name
+							if item.title != undefined
+								p= item.title
+							if item.socialMedia != undefined
+								ul
+									for social in item.socialMedia
+										li
+											a(href="#{social.fields.url}" target="_blank" rel="noopener")
+												i.fa(class="fa-#{social.fields.website.toLowerCase()}")
+				.row.mt--2.mb--2
+					col-sm-12
+						hr
+			if contentful.advisors.length > 0
+				.row.text-center
+					.col-sm-12
+						h3 Advisors
+						for item in contentful.advisors
+							h5 
+								a(href="#{item.url}" target="_blank" rel="noopener")= item.name
+							

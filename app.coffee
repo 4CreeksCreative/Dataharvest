@@ -36,6 +36,10 @@ module.exports =
 					id:'techPosts'
 					template:'views/partials/_tech_template.jade'
 					path: (e) -> 'tech/'+e.url
+				team:
+					id:'teamMembers'
+				advisors:
+					id:'advisor'
 
 	]
 
