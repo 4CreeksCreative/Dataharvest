@@ -13,98 +13,77 @@ block content
 					ul.slides
 						for image in contentful.Home[0].headerBackgrounds
 							li.unpad.imagebg.parallax
-				img(src="/img/test.jpg")
+				img(src="#{asset(contentful.home[0].header)}")
 
-			img#intro-logo(src="/img/logo/logo-white.png")
+			img#intro-logo(src="#{asset(contentful.home[0].logo)}")
 
-
-		section.bg--lightgray
-			.container
-				.row.text-center
-					.col-sm-12
-						h1.
-							Helping growers make the most of their data
-						p.
-							DataHarvest integrates technology and big data into modern large scale agricultural operations. We solve problems for the farm at a fundamental level; finding efficiencies, savings, developing transparencies, and opportunities to lead the market in global supply through blockchain technology.
-					.col-sm-12
-						a.btn(href="/technology") 
-							span Our Tech
+		if contentful.home[0].featuredText != undefined
+			section.bg--lightgray
+				.container
+					.row.text-center
+						.col-sm-12
+							h1= contentful.home[0].featuredText.fields.subhead
+							p= contentful.home[0].featuredText.fields.description
+						.col-sm-12
+							if contentful.home[0].featuredText.fields.externalLink
+								a.btn(href="#{contentful.home[0].featuredText.fields.url}" target="_blank" rel="noopener") 
+									span Read More
+							else
+								a.btn(href="#{contentful.home[0].featuredText.fields.url}") 
+									span Read More
 							
-		section
-			.container
-				.row.text-center
-					.col-sm-4
-						.radial(data-value='100', data-timing='1000', data-color='#9fbaa7', data-size='200', data-bar-width='10')
-							span.h3.radial__label
-								i.fa.fa-comments-o
-						h4.
-							ADVISORY
-						p.
-							DataHarvest is built as a neutral partner. We have decades of experience with data services. We advocate for the farmer to retain control of their data and only pay for services that return measurable improvements to the bottom line…not just pretty pictures.
-						
-					.col-sm-4
-						.radial(data-value='100', data-timing='1000', data-color='#9fbaa7', data-size='200', data-bar-width='10')
-							span.h3.radial__label
-								i.fa.fa-search
-						h4.
-							DISCOVERY
-						p.
-							The DataHarvest team has audited and documented processes from field to the retail shelf. We know what data is useful today and how to make sure that data bubbles to the top. In addition, we are actively testing new approaches with our partners to make sure we can find the data you will need tomorrow.
-							
-					.col-sm-4
-						.radial(data-value='100', data-timing='1000', data-color='#9fbaa7', data-size='200', data-bar-width='10')
-							span.h3.radial__label
-								i.fa.fa-bolt
-						h4.
-							DEVELOPMENT
-						p.
-							Our team of project manager are PMP certified and will drive the project until it is successfully completed. Communicating every step of the way so all involved know about the progress and can quickly jump in when hurdles arise.
-		section.bg--green
-			.container
-				.row.text-center
-					.col-sm-8.col-sm-offset-2
-						h3.color--white Project Spotlight
-						p.color--white.
-							We are teaming with UC Riverside to develop a novel agricultural blockchain platform, to integrate and pilot blockchain technology into the Avocado Variety Improvement Program for management and deployment of newly developed varieties.
-						a.btn.btn--lightgray(href="#")
-							span Read the story
-		section
-			.container
-				.row.text-center
-					.col-sm-12
-						h4.
-							BLOCKCHAIN NEWS
-				.row
-					.col-sm-4.col-xs-6
-						a(href="")
-							img(src="/img/test.jpg")
-							h5.unmarg.
-								JD vs Alibaba: The war for China’s fresh food
-							hr
-							p.
-								Chinese online retailers have long wanted to figure out the online groceries game—tantalizing and still largely untapped.
-							a.btn(href="#")
-								span Read More
-					.col-sm-4.col-xs-6
-						a(href="")
-							img(src="/img/test.jpg")
-							h5.unmarg.
-								Blockchain: GS1, IBM and Microsoft collaborate to leverage standards
-							hr
-							p.
-								GS1®, announces a collaboration with IBM and Microsoft to leverage GS1 Standards in their enterprise blockchain applications for supply chain clients.
-							a.btn(href="#")
-								span Read More
-					.col-sm-4.col-xs-6
-						a(href="")
-							img(src="/img/test.jpg")
-							h5.unmarg.
-								Belgian strawberry harvesting robot to enter green houses next year
-							hr
-							p.
-								The machine was demonstrated at the International Mechanisation and Demonstration Day at Research Centre, Hoogstraten.
-							a.btn(href="#")
-								span Read More
+		if contentful.home[0].skills.length > 0
+			section
+				.container
+					.row.text-center
+						for item in contentful.home[0].skills
+							.col-sm-4
+								.radial(data-value='100', data-timing='1000', data-color='#9fbaa7', data-size='200', data-bar-width='10')
+									span.h3.radial__label
+										i.fa(class="#{item.fields.icon}")
+								h4= item.fields.title
+								p= item.fields.description
+		if contentful.home[0].featuredStory != undefined
+			section.bg--green
+				.container
+					.row.text-center
+						.col-sm-8.col-sm-offset-2
+							h3.color--white= contentful.home[0].featuredStory.fields.subhead
+							p.color--white= contentful.home[0].featuredStory.fields.description
+							if contentful.home[0].featuredStory.fields.externalLink
+								a.btn.btn--lightgray(href="#{contentful.home[0].featuredStory.fields.url}" rel="noopener" target="_blank")
+									span Read the story
+							else
+								a.btn.btn--lightgray(href="#{contentful.home[0].featuredStory.fields.url}")
+									span Read the story
+		if contentful.home[0].news.length > 0
+			section
+				.container
+					.row.text-center
+						.col-sm-12
+							h4.
+								BLOCKCHAIN NEWS
+					.row
+						for item in contentful.home[0].news
+							.col-sm-4.col-xs-6
+								if item.fields.externalLink	
+									a(href="#{item.fields.url}" target="_blank" rel="noopener")
+										img(src="#{asset(item.fields.image)}")
+										h5.unmarg= item.fields.title
+										hr
+										p= item.fields.description
+										a.btn(href="#{item.fields.url}" target="_blank" rel="noopener")
+											span Read More
+								else	
+									a(href="#{item.fields.url}")
+										img(src="#{asset(item.fields.image)}")
+										h5.unmarg= item.fields.title
+										hr
+										p= item.fields.description
+										a.btn(href="#{item.fields.url}")
+											span Read More
+								
+					
 		
 		section.bg--gray
 			.container

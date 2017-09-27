@@ -46,6 +46,8 @@ module.exports =
 					id:'partnersPage'
 				tech:
 					id:'techPage'
+				home:
+					id:'homePage'
 
 	]
 
