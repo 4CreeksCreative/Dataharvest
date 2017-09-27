@@ -32,7 +32,7 @@ module.exports =
 			access_token:'3edc60740190cee0efc026e74e6d9b30aec916c017195c73cec7e8625f7b7fff'
 			space_id: 'tltr1w0m8ryi'
 			content_types:
-				tech:
+				tech_post:
 					id:'techPosts'
 					template:'views/partials/_tech_template.jade'
 					path: (e) -> 'tech/'+e.url
@@ -44,6 +44,8 @@ module.exports =
 					id:'avip'
 				partners:
 					id:'partnersPage'
+				tech:
+					id:'techPage'
 
 	]
 

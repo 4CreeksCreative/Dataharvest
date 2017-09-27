@@ -11,59 +11,61 @@ block content
 				ul.slides
 					for image in contentful.Home[0].headerBackgrounds
 						li.unpad.imagebg.parallax
-			img(src="/img/test.jpg")
+			img(src="#{asset(contentful.tech[0].header)}")
 
 		.container.pos-vertical-center
 			.row.text-center
 				.col-sm-12
 					h1.color--white Technology
+
+	if contentful.tech[0].textAreas.length > 0
+		section.text-blocks
+			.container
+				for item in contentful.tech[0].textAreas
+					if item.fields.imagePosition == 'center' || item.fields.imagePosition == undefined
+						.row.text-center
+							.col-sm-8.col-sm-offset-2
+								h3= item.fields.sectionTitle
+								img(src="#{asset(item.fields.image)}")
+								p= item.fields.sectionBody
+					else
+						.row
+							.col-sm-6(class="float-#{item.fields.imagePosition}")
+								img(src="#{asset(item.fields.image)}")
+							.col-sm-6.text-area(class="text-#{item.fields.imagePosition}")
+								h3= item.fields.sectionTitle
+								p= item.fields.sectionBody
+
 	
-	
-	section
-		.container
-			.row
-				.col-sm-6.float-right
-					img(src="/img/test.jpg")
-				.col-sm-6.float-left
-					h3.
-						Commodities turned into digital assets
-					p.
-						DataHarvest strives to deploy technologies and processes that capture every physical asset and assign it a digital identity. Allowing each asset to be traced and validated. Providing transparency on the origins, transit conditions, attributes and ownership. We work with our clients current systems as well as develop new tools and processes to achieve this goal.
-			.row.mt--1
-				.col-sm-6.float-left
-					img(src="/img/test.jpg")
-				.col-sm-6.float-right
-					h3.
-						Insightful solutions from the minds of growers
-					p.
-						DataHarvest and our partners represent decades of practical, hands on experience from growers to Global scale retailer and marketers. We combine state of the art technology platforms to make immediate tangible solutions for existing agricultural problems
-				
-	section.pos-relative.parallax.height-30
-		.background-image-holder
-			img(src="/img/test.jpg")
-		.container.pos-vertical-center
-			.row.text-center
-				.col-sm-8.col-sm-offset-2
-					h3.color--white The implications of  Block Chain
-					p.color--white.
-						Data Harvest’s First Block Ledger provides a digital record, like asset ownership, that is maintained without a central authority or implementation. This provides unparalleled transparency that provides value to all parties.
-					a.btn(href="#")
-						span More on Block Chain
-	section
-		.container
-			.row.text-center
-				.col-sm-12
-					h3 Technology partners
-			ul.row.text-center
-				li.col-sm-3.col-xs-6
-					a(href="#")
-						img(src="/img/test.jpg")
-				li.col-sm-3.col-xs-6
-					a(href="#")
-						img(src="/img/test.jpg")
-				li.col-sm-3.col-xs-6
-					a(href="#")
-						img(src="/img/test.jpg")
-				li.col-sm-3.col-xs-6
-					a(href="#")
-						img(src="/img/test.jpg")
+	if contentful.tech[0].featuredPost != undefined
+		section.pos-relative.parallax.height-30(data-overlay="5")
+			.background-image-holder
+				img(src="#{asset(contentful.tech[0].featuredPost.fields.image)}")
+			.container.pos-vertical-center
+				.row.text-center
+					.col-sm-8.col-sm-offset-2
+						if contentful.tech[0].featuredPost.fields.subhead != undefined
+							h3.color--white= contentful.tech[0].featuredPost.fields.subhead
+						if contentful.tech[0].featuredPost.fields.description != undefined
+							p.color--white= contentful.tech[0].featuredPost.fields.description
+						if contentful.tech[0].featuredPost.fields.externalLink
+							a.btn(href="#{contentful.tech[0].featuredPost.fields.url}" target="_blank" rel="noopener")
+								span Read More
+						else
+							a.btn(href="#{contentful.tech[0].featuredPost.fields.url}")
+								span Read More
+
+	if contentful.tech[0].technologyPartners.length > 0
+		section
+			.container
+				.row.text-center
+					.col-sm-12
+						h3 Technology partners
+				ul.row.text-center
+					for item in contentful.tech[0].technologyPartners
+						li.col-sm-3.col-xs-6
+							if item.fields.website != undefined
+								a(href="item.fields.website" target="_blank" rel="noopener")
+									img(src="#{asset(item.fields.logo)}")
+							else
+								img(src="#{asset(item.fields.logo)}")
