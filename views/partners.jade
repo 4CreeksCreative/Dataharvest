@@ -37,6 +37,9 @@ block content
 									img(src="#{asset(item.fields.logo)}")
 							else
 								img(src="#{asset(item.fields.logo)}")
-						.col-sm-8
-							h4= item.fields.name
-							p= item.fields.description
+						if item.fields.name != undefined || item.fields.description != undefined
+							.col-sm-8
+								if item.fields.name != undefined
+									h4= item.fields.name
+								if item.fields.description != undefined
+									p= item.fields.description
