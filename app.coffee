@@ -40,6 +40,10 @@ module.exports =
 					id:'teamMembers'
 				advisors:
 					id:'advisor'
+				AVIP:
+					id:'avip'
+				partners:
+					id:'partnersPage'
 
 	]
 
