@@ -126,10 +126,23 @@ textarea
 
 
 // --- --- --- MISC CLASSES
-.parallax
+.parallax.header
 	&.height-30
 		.background-image-holder
 			top -30vh !important
+.height-30
+	min-height 350px
+	@media(max-width:768px)
+		height auto
+		.pos-vertical-center
+			transform translateY(50%)
+	@media(max-height:600px)
+		height auto
+		.background-image-holder
+			top 0 !important
+		.pos-vertical-center
+			transform translateY(50%)
+
 #hero
 	.container
 		z-index 3
@@ -159,8 +172,15 @@ textarea
 			top -30vh
 			max-width none
 			max-height none
+			@media(max-height:600px)
+				top 0
+				min-height 350px
+				min-width 350px
 [data-overlay]:before
 	background $gray
+[data-overlay]
+	.container
+		z-index 2
 
 #menu-overlay
 	position fixed
@@ -296,7 +316,20 @@ header
 // --- --- --- BLOG POSTS
 .text-blocks
 	padding-bottom 0
- 	.row
+	.container
+		.row
+			position relative
+			[class*="col-"]
+				position relative
+				padding 0px 50px 50px 50px
+			.text-area
+				top 0
+				transform translateY(0%)
+				-webkit-transform translateY(0%)
+				&.text-left
+					margin-left auto
+
+	.row
 		position relative
 		&:not(:first-child)
 			@media(min-width:768px)
@@ -328,6 +361,7 @@ header
 		.col-sm-6
 			img
 				display block
+				width 100%
 
 
 
