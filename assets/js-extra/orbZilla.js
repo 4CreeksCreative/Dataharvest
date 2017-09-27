@@ -135,10 +135,13 @@ function onWindowResize() {
         windowHalfX = window.innerWidth / 2;
         windowHalfY = window.innerHeight / 2;
         width = window.innerWidth;
-        height = window.innerHeight;
+        height =  window.innerHeight;
         camera.aspect = width / height;
+        camera2.aspect = width / height;
         camera.updateProjectionMatrix();
+        camera2.updateProjectionMatrix();
         renderer.setSize( width, height );
+        renderer2.setSize( width, height );
         //postprocessing.composer.setSize( width, height );
     }
 
