@@ -11,27 +11,32 @@ block content
 				ul.slides
 					for image in contentful.Home[0].headerBackgrounds
 						li.unpad.imagebg.parallax
-			img(src="/img/test.jpg")
+			img(src="#{asset(contentful.partners[0].header)}")
 
 		.container.pos-vertical-center
 			.row.text-center
 				.col-sm-12
-					h1.color--white Partners
-	
-	
+					h1.color--white= contentful.partners[0].title
+
+
 	section.bg--lightgray
 		.container
 			.row.text-center
 				.col-sm-12
-					h3 One-of-a-kind collaborators
+					h3= contentful.partners[0].intro.fields.subhead
 				.col-sm-8.col-sm-offset-2
-					p.
-						DataHarvest has grown over the last couple of years and has been working with great partners on various projects. Joining with public companies, large and small, while developing exclusive agreements with academic and research organizations  we have a one of a kind portfolio of products and projects. Below you’ll find some of our public projects. If you have a project feel free to contact us here
-	section
-		.container
-			.row
-				.col-sm-4
-					img(src="/img/test.jpg")
-				.col-sm-8
-					p.
-						Research program to test the viability of agricultural UAV products. Our background in high value crops and remote data sensing helped the client find ideal conditions for product development. Introducing large scale growing operations and developing the overall scope of the project. Coordinating and educating growers with capabilities of UAVs and channeling feedback and concerns into a successful proof of concept.
+					p= contentful.partners[0].intro.fields.body
+	if contentful.partners[0].partners.length > 0
+		section
+			.container
+				for item in contentful.partners[0].partners
+					.row
+						.col-sm-4
+							if item.fields.website != undefined
+								a(href="#{item.fields.website}")
+									img(src="#{asset(item.fields.logo)}")
+							else
+								img(src="#{asset(item.fields.logo)}")
+						.col-sm-8
+							h4= item.fields.name
+							p= item.fields.description
