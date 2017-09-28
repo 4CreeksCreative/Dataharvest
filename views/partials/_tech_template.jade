@@ -1,5 +1,6 @@
 extends /layout
-
+block head
+	title DataHarvest - #{entry.title}
 block content
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
 	script(src='https://ajax.googleapis.com/ajax/libs/threejs/r76/three.min.js')
@@ -11,12 +12,12 @@ block content
 				ul.slides
 					for image in contentful.Home[0].headerBackgrounds
 						li.unpad.imagebg.parallax
-			img(src="/img/test.jpg")
+			img(src="#{asset(entry.header)}")
 
 		.container.pos-vertical-center
 			.row.text-center
 				.col-sm-12
-					h1.color--white Technology
+					h1.color--white= entry.title
 	
 	
 	section.text-blocks
