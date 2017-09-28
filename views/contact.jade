@@ -1,5 +1,6 @@
 extends layout
-
+block head
+	title DataHarvest - Contact
 block content
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
 	script(src='https://ajax.googleapis.com/ajax/libs/threejs/r76/three.min.js')
@@ -11,12 +12,12 @@ block content
 				ul.slides
 					for image in contentful.Home[0].headerBackgrounds
 						li.unpad.imagebg.parallax
-			img(src="/img/test.jpg")
+			img(src="#{asset(contentful.contact[0].header)}")
 
 		.container.pos-vertical-center
 			.row.text-center
 				.col-sm-12
-					h1.color--white Contact
+					h1.color--white= contentful.contact[0].title
 	
 	
 	section.bg--lightgray
@@ -30,15 +31,15 @@ block content
 				.col-sm-12
 					span.contact-icon
 						i.fa.fa-map-pin
-						|San Joaquin Valley of California, California
+						|#{contentful.contact[0].location}
 				.col-sm-12
 					span.contact-icon
 						i.fa.fa-phone
-						|(916) 741-2687
+						|#[a(href="tel:#{contentful.contact[0].phone}") #{contentful.contact[0].phone}]
 				.col-sm-12
 					span.contact-icon
 						i.fa.fa-envelope
-						|#[a(href="mailto:info@dataharvest.co") info@dataharvest.co]
+						|#[a(href="mailto:#{contentful.contact[0].email}") #{contentful.contact[0].email}]
 	section
 		.container
 			.row
