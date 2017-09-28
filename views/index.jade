@@ -64,25 +64,26 @@ block content
 						.col-sm-12
 							h4.
 								BLOCKCHAIN NEWS
-					.row
-						for item in contentful.home[0].news
-							.col-sm-4.col-xs-6
-								if item.fields.externalLink	
-									a(href="#{item.fields.url}" target="_blank" rel="noopener")
-										img(src="#{asset(item.fields.image)}")
-										h5.unmarg= item.fields.title
-										hr
-										p= item.fields.description
-										a.btn(href="#{item.fields.url}" target="_blank" rel="noopener")
-											span Read More
-								else	
-									a(href="#{item.fields.url}")
-										img(src="#{asset(item.fields.image)}")
-										h5.unmarg= item.fields.title
-										hr
-										p= item.fields.description
-										a.btn(href="#{item.fields.url}")
-											span Read More
+					.masonry
+						.masonry__container
+							for item in contentful.home[0].news
+								.masonry__item.col-sm-4.col-xs-6
+									if item.fields.externalLink || item.fields.externalLink == undefined
+										a(href="#{item.fields.url}" target="_blank" rel="noopener")
+											img(src="#{asset(item.fields.image)}")
+											h5.unmarg= item.fields.title
+											hr
+											p= item.fields.description
+											a.btn(href="#{item.fields.url}" target="_blank" rel="noopener")
+												span Read More
+									else	
+										a(href="#{item.fields.url}")
+											img(src="#{asset(item.fields.image)}")
+											h5.unmarg= item.fields.title
+											hr
+											p= item.fields.description
+											a.btn(href="#{item.fields.url}")
+												span Read More
 								
 					
 		
