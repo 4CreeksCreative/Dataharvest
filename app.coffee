@@ -37,9 +37,7 @@ module.exports =
 					template:'views/partials/_tech_template.jade'
 					path: (e) -> 'tech/'+e.url
 				team:
-					id:'teamMembers'
-				advisors:
-					id:'advisor'
+					id:'teamPage'
 				AVIP:
 					id:'avip'
 				partners:
@@ -48,6 +46,8 @@ module.exports =
 					id:'techPage'
 				home:
 					id:'homePage'
+				contact:
+					id:'contactPage'
 
 	]
 
