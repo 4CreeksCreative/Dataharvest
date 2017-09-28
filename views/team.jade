@@ -1,5 +1,6 @@
 extends layout
-
+block head
+	title DataHarvest - Team
 block content
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
 	script(src='https://ajax.googleapis.com/ajax/libs/threejs/r76/three.min.js')
@@ -11,47 +12,46 @@ block content
 				ul.slides
 					for image in contentful.Home[0].headerBackgrounds
 						li.unpad.imagebg.parallax
-			img(src="/img/test.jpg")
+			img(src="#{asset(contentful.team[0].header)}")
 
 		.container.pos-vertical-center
 			.row.text-center
 				.col-sm-12
-					h1.color--white Team
+					h1.color--white= contentful.team[0].title
 	
-	
-	section.bg--lightgray
-		.container
-			.row.text-center
-				.col-sm-8.col-sm-offset-2
-					p.
-						Our technology team stands ready to handle the pipeline of information that will flood our modern day farmers with data. Designing and supporting some of the world’s largest data sets, we are ready to build the architecture for the data flow that enables the farms to harvest their second most valuable commodity; their data.
+	if contentful.team[0].intro != undefined
+		section.bg--lightgray
+			.container
+				.row.text-center
+					.col-sm-8.col-sm-offset-2
+						p= contentful.team[0].intro
 	
 	section
 		.container
-			if contentful.team.length > 0
+			if contentful.team[0].teamMembers.length > 0
 				.row
-					for item in contentful.team
+					for item in contentful.team[0].teamMembers
 						.col-sm-6.text-center
-							if item.image != undefined
-								img(src="#{asset(item.image)}" style="margin: 0 auto 20px auto;")
-							if item.name != undefined
-								h5.unmarg= item.name
-							if item.title != undefined
-								p= item.title
-							if item.socialMedia != undefined
+							if item.fields.image != undefined
+								img(src="#{asset(item.fields.image)}" style="margin: 0 auto 20px auto;")
+							if item.fields.name != undefined
+								h5.unmarg= item.fields.name
+							if item.fields.title != undefined
+								p= item.fields.title
+							if item.fields.socialMedia != undefined
 								ul
-									for social in item.socialMedia
+									for social in item.fields.socialMedia
 										li
 											a(href="#{social.fields.url}" target="_blank" rel="noopener")
 												i.fa(class="fa-#{social.fields.website.toLowerCase()}")
 				.row.mt--2.mb--2
 					col-sm-12
 						hr
-			if contentful.advisors.length > 0
+			if contentful.team[0].advisors.length > 0
 				.row.text-center
 					.col-sm-12
 						h3 Advisors
-						for item in contentful.advisors
+						for item in contentful.team[0].advisors
 							h5 
-								a(href="#{item.url}" target="_blank" rel="noopener")= item.name
+								a(href="#{item.fields.url}" target="_blank" rel="noopener")= item.fields.name
 							
