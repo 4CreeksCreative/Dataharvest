@@ -4,6 +4,15 @@ block head
 block content
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
 	script(src='https://ajax.googleapis.com/ajax/libs/threejs/r76/three.min.js')
+	
+	.notification.pos-right.pos-bottom.col-sm-6.col-md-4(data-animation='from-bottom', data-autoshow='200')
+		.boxed.boxed--border.border--round.box-shadow
+			.text-block
+				h5 UPDATED 10/25/17
+				p.
+					Applications are now due by 11:59 PM PDT on Monday, November 27, 2017. However, please email letter of intent (to include proposed partners and interested territory(ies) by Friday, November 3, 2017.
+
+	
 	section#hero.pos-relative.height-30.unpad.parallax(data-overlay="9")
 		.orb-container.no-max-height
 			script(src="/js-extra/orbZilla.js")
@@ -28,6 +37,12 @@ block content
 				.col-sm-12
 					h3=  contentful.AVIP[0].intro.fields.sectionTitle
 					p= contentful.AVIP[0].intro.fields.sectionBody
+	
+	section
+		.container
+			.row.text-center
+				.col-sm-12
+					
 	if contentful.AVIP[0].steps.length > 0
 		section
 			.container
@@ -38,7 +53,7 @@ block content
 							for item in contentful.AVIP[0].steps
 								.process__item
 									h4= item.fields.subhead
-									p= item.fields.body
+									p!= item.fields.body
 								
 								
 	section
