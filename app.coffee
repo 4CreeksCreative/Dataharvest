@@ -29,8 +29,8 @@ module.exports =
 	# 				id: 'homePage'
 	# 				##template: 'views/partial/_cf_post.jade'
 		contentful
-			access_token:'caacb39437ae868c0168c78fb39c55113ec9751275b035cc5226078a981e1744'
-			space_id: '57t5vobpd4ou'
+			access_token:'515f4dd2fe010bd9ecd73d33bdd81c0a8f34503377c2ee5159ca5686ee163116'
+			space_id: '5k3u8zvx5qc8'
 			content_types:
 				tech_post:
 					id:'techPosts'
